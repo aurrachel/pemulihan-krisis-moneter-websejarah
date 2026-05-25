@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pemulihan Krisis Moneter — Era Reformasi Indonesia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root {
+    --bg-parchment: #f5ede0;
+    --bg-cream: #faf6ef;
+    --bg-dark: #2c1f14;
+    --bg-mid: #3d2b1a;
+    --brown-deep: #4a2c0a;
+    --brown-mid: #7a4a20;
+    --brown-light: #a0683a;
+    --gold: #b8962e;
+    --gold-bright: #d4a843;
+    --gold-muted: #c9aa71;
+    --beige: #d9c4a0;
+    --cream: #f0e6d3;
+    --text-dark: #1e1209;
+    --text-mid: #3d2b1a;
+    --text-light: #6b4c2a;
+    --text-muted: #8a6b47;
+    --border-gold: rgba(184,150,46,0.4);
+    --border-brown: rgba(122,74,32,0.3);
+    --shadow-warm: rgba(74,44,10,0.2);
+    --navbar-h: 68px;
+    --sidebar-w: 260px;
+    --transition: 0.35s cubic-bezier(.4,0,.2,1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    background-color: var(--bg-parchment);
+    color: var(--text-dark);
+    overflow-x: hidden;
+    min-height: 100vh;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"),
+      repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(184,150,46,0.03) 28px, rgba(184,150,46,0.03) 29px),
+      linear-gradient(160deg, #f5ede0 0%, #f0e6d3 40%, #ecdcc5 100%);
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: var(--bg-dark); }
+  ::-webkit-scrollbar-thumb { background: var(--gold-muted); border-radius: 0; }
+
+  /* ══ NAVBAR ══ */
+  #navbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    height: var(--navbar-h);
+    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-mid) 60%, #2a1a0e 100%);
+    border-bottom: 2px solid var(--gold);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.5), 0 1px 0 rgba(184,150,46,0.3) inset;
+    display: flex; align-items: center; padding: 0 2rem;
+    gap: 2rem;
+  }
+
+  .navbar-brand {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em;
+    color: var(--gold-bright); white-space: nowrap;
+    text-transform: uppercase;
+    border-right: 1px solid rgba(184,150,46,0.3);
+    padding-right: 2rem;
+    flex-shrink: 0;
+  }
+  .navbar-brand span { display: block; font-size: 0.55rem; color: var(--gold-muted); letter-spacing: 0.3em; margin-top: 2px; }
+
+  .navbar-links {
+    display: flex; gap: 0; list-style: none; flex: 1;
+  }
+  .navbar-links li a {
+    display: block; padding: 0.45rem 1.1rem;
+    font-family: 'Cinzel', serif; font-size: 0.7rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none;
+    color: var(--beige); transition: color var(--transition);
+    position: relative;
+  }
+  .navbar-links li a::after {
+    content: ''; position: absolute; bottom: -2px; left: 1.1rem; right: 1.1rem;
+    height: 1px; background: var(--gold-bright);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform var(--transition);
+  }
+  .navbar-links li a:hover { color: var(--gold-bright); }
+  .navbar-links li a:hover::after { transform: scaleX(1); }
+
+  /* ornament */
+  .navbar-ornament {
+    margin-left: auto; flex-shrink: 0;
+    font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;
+    color: rgba(184,150,46,0.4); letter-spacing: 0.3em;
+  }
+
+  /* hamburger */
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px; cursor: pointer;
+    padding: 6px; margin-left: auto; background: none; border: none;
+  }
+  .hamburger span {
+    display: block; width: 24px; height: 2px;
+    background: var(--gold-bright); transition: var(--transition);
+  }
+  .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* mobile menu */
+  .mobile-menu {
+    display: none; position: fixed; top: var(--navbar-h); left: 0; right: 0;
+    background: var(--bg-dark); z-index: 999;
+    border-bottom: 1px solid var(--gold); padding: 1rem 0;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu li { list-style: none; }
+  .mobile-menu li a {
+    display: block; padding: 0.8rem 2rem;
+    font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.1em;
+    color: var(--beige); text-decoration: none;
+    border-bottom: 1px solid rgba(184,150,46,0.1);
+  }
+
+  /* ══ LAYOUT ══ */
+  .layout {
+    display: flex; padding-top: var(--navbar-h); min-height: 100vh;
+  }
+
+  /* ══ SIDEBAR ══ */
+  #sidebar {
+    position: fixed; top: var(--navbar-h); left: 0; bottom: 0;
+    width: var(--sidebar-w); z-index: 900;
+    background: linear-gradient(180deg, #241508 0%, #1e1209 100%);
+    border-right: 1px solid rgba(184,150,46,0.25);
+    overflow-y: auto; transition: transform var(--transition);
+    display: flex; flex-direction: column;
+  }
+  #sidebar::-webkit-scrollbar { width: 4px; }
+  #sidebar::-webkit-scrollbar-thumb { background: rgba(184,150,46,0.3); }
+
+  .sidebar-header {
+    padding: 1.8rem 1.5rem 1rem;
+    border-bottom: 1px solid rgba(184,150,46,0.2);
+  }
+  .sidebar-header p {
+    font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--gold-muted); margin-bottom: 0.5rem;
+  }
+  .sidebar-header h3 {
+    font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600;
+    color: var(--cream); line-height: 1.4;
+  }
+
+  .sidebar-nav { padding: 1rem 0; flex: 1; }
+  .sidebar-nav ul { list-style: none; }
+  .sidebar-nav li a {
+    display: flex; align-items: center; gap: 0.75rem;
+    padding: 0.65rem 1.5rem;
+    font-family: 'Libre Baskerville', serif; font-size: 0.72rem;
+    color: rgba(217,196,160,0.7); text-decoration: none;
+    border-left: 2px solid transparent;
+    transition: all var(--transition);
+    line-height: 1.4;
+  }
+  .sidebar-nav li a i {
+    width: 14px; text-align: center; color: rgba(184,150,46,0.5);
+    font-size: 0.7rem; flex-shrink: 0; transition: color var(--transition);
+  }
+  .sidebar-nav li a:hover,
+  .sidebar-nav li a.active {
+    color: var(--gold-bright);
+    border-left-color: var(--gold-bright);
+    background: rgba(184,150,46,0.08);
+    padding-left: 2rem;
+  }
+  .sidebar-nav li a.active i,
+  .sidebar-nav li a:hover i { color: var(--gold-bright); }
+
+  .sidebar-footer-note {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid rgba(184,150,46,0.15);
+    font-family: 'Cormorant Garamond', serif; font-size: 0.75rem;
+    color: rgba(184,150,46,0.4); text-align: center; font-style: italic;
+  }
+
+  /* ══ MAIN CONTENT ══ */
+  #main {
+    margin-left: var(--sidebar-w);
+    flex: 1; min-height: 100vh;
+  }
+
+  /* ══ HERO ══ */
+  #hero {
+    background: linear-gradient(180deg, #1e1209 0%, #2c1810 60%, #3d2415 100%);
+    padding: 6rem 4rem 4rem;
+    position: relative; overflow: hidden;
+    border-bottom: 3px double var(--gold);
+  }
+  #hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 2 L58 30 L30 58 L2 30 Z' fill='none' stroke='rgba(184,150,46,0.06)' stroke-width='1'/%3E%3C/svg%3E");
+    background-size: 60px 60px;
+  }
+  .hero-ornament-top {
+    font-family: 'Cormorant Garamond', serif; font-size: 2rem;
+    color: rgba(184,150,46,0.3); text-align: center; letter-spacing: 0.8em;
+    margin-bottom: 1.5rem;
+  }
+  .hero-eyebrow {
+    font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.4em;
+    text-transform: uppercase; color: var(--gold-muted);
+    text-align: center; margin-bottom: 1.5rem;
+    display: flex; align-items: center; justify-content: center; gap: 1rem;
+  }
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: ''; flex: 1; max-width: 80px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-muted));
+  }
+  .hero-eyebrow::after { background: linear-gradient(90deg, var(--gold-muted), transparent); }
+
+  .hero-title {
+    font-family: 'Cinzel', serif; font-size: clamp(1.8rem, 4vw, 3.2rem);
+    font-weight: 900; color: #fff;
+    text-align: center; line-height: 1.2; margin-bottom: 1rem;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+  }
+  .hero-title span { color: var(--gold-bright); display: block; }
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif; font-size: clamp(1rem, 2vw, 1.4rem);
+    font-style: italic; color: var(--beige); text-align: center;
+    margin-bottom: 2.5rem; opacity: 0.85;
+  }
+
+  .hero-divider {
+    display: flex; align-items: center; justify-content: center; gap: 0.75rem;
+    margin-bottom: 2.5rem;
+  }
+  .hero-divider-line { flex: 1; max-width: 100px; height: 1px; background: rgba(184,150,46,0.5); }
+  .hero-divider-icon { color: var(--gold); font-size: 1rem; }
+
+  .hero-meta {
+    display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;
+  }
+  .hero-meta-item {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+  }
+  .hero-meta-item .label {
+    font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--gold-muted); display: block;
+  }
+  .hero-meta-item .value {
+    font-size: 1.1rem; color: var(--cream); font-weight: 600;
+    margin-top: 0.25rem; display: block;
+  }
+
+  /* ══ CONTENT SECTIONS ══ */
+  .content-wrapper { padding: 0 3.5rem 0 3rem; }
+
+  section {
+    padding: 4rem 0 2rem; border-bottom: 1px solid var(--border-gold);
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  section.visible { opacity: 1; transform: translateY(0); }
+
+  /* section label */
+  .section-label {
+    font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.35em;
+    text-transform: uppercase; color: var(--gold);
+    display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;
+  }
+  .section-label::before {
+    content: ''; width: 30px; height: 1px; background: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Cinzel', serif; font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 700; color: var(--brown-deep);
+    line-height: 1.3; margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--beige);
+    position: relative;
+  }
+  .section-title::after {
+    content: ''; position: absolute; bottom: -2px; left: 0;
+    width: 60px; height: 2px; background: var(--gold);
+  }
+
+  /* vintage section divider */
+  .divider-vintage {
+    text-align: center; padding: 2rem 0; color: rgba(184,150,46,0.4);
+    font-size: 1.2rem; letter-spacing: 0.5em;
+  }
+
+  /* ── prose ── */
+  .prose {
+    font-size: 0.95rem; line-height: 1.9; color: var(--text-mid);
+    max-width: 72ch;
+  }
+  .prose p { margin-bottom: 1.2rem; }
+
+  /* ── highlight quote ── */
+  .quote-block {
+    margin: 2rem 0; padding: 1.75rem 2rem;
+    border-left: 4px solid var(--gold);
+    background: linear-gradient(135deg, rgba(184,150,46,0.06), rgba(184,150,46,0.02));
+    position: relative;
+  }
+  .quote-block::before {
+    content: '\201C'; font-family: 'Cormorant Garamond', serif; font-size: 5rem;
+    color: rgba(184,150,46,0.15); position: absolute; top: -0.5rem; left: 0.75rem;
+    line-height: 1;
+  }
+  .quote-block p {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-style: italic;
+    color: var(--brown-deep); line-height: 1.7;
+  }
+
+  /* ── infobox ── */
+  .infobox {
+    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-mid) 100%);
+    border: 1px solid rgba(184,150,46,0.35);
+    padding: 1.5rem 2rem; margin: 2rem 0;
+    position: relative;
+  }
+  .infobox::before {
+    content: ''; position: absolute; top: 6px; left: 6px; right: 6px; bottom: 6px;
+    border: 1px solid rgba(184,150,46,0.15); pointer-events: none;
+  }
+  .infobox-title {
+    font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold-bright); margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .infobox-title i { font-size: 0.8rem; }
+  .infobox ul { list-style: none; }
+  .infobox ul li {
+    font-size: 0.88rem; color: var(--beige); padding: 0.4rem 0;
+    border-bottom: 1px solid rgba(184,150,46,0.1);
+    display: flex; align-items: flex-start; gap: 0.75rem; line-height: 1.5;
+  }
+  .infobox ul li:last-child { border-bottom: none; }
+  .infobox ul li::before {
+    content: '◆'; color: var(--gold); font-size: 0.5rem; flex-shrink: 0; margin-top: 0.3rem;
+  }
+
+  /* ── stats row ── */
+  .stats-row {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.5rem; margin: 2.5rem 0;
+  }
+  .stat-card {
+    background: linear-gradient(145deg, #fff9f2, var(--cream));
+    border: 1px solid var(--border-gold);
+    border-top: 3px solid var(--gold);
+    padding: 1.5rem 1rem; text-align: center;
+    box-shadow: 0 4px 15px var(--shadow-warm);
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+  .stat-card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px var(--shadow-warm); }
+  .stat-card .stat-num {
+    font-family: 'Cinzel', serif; font-size: 2rem; font-weight: 900;
+    color: var(--brown-deep); display: block; line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .stat-card .stat-label {
+    font-family: 'Cormorant Garamond', serif; font-size: 0.85rem;
+    color: var(--text-light); font-style: italic; line-height: 1.4;
+  }
+
+  /* ── cards grid ── */
+  .cards-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem; margin: 2rem 0;
+  }
+  .card {
+    background: linear-gradient(145deg, #fffdf9, var(--cream));
+    border: 1px solid var(--border-brown);
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px var(--shadow-warm);
+    transition: all var(--transition);
+    position: relative; overflow: hidden;
+  }
+  .card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--brown-light));
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px var(--shadow-warm); }
+  .card-icon {
+    width: 42px; height: 42px;
+    background: linear-gradient(135deg, var(--bg-dark), var(--bg-mid));
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1rem; border: 1px solid var(--border-gold);
+  }
+  .card-icon i { color: var(--gold-bright); font-size: 0.9rem; }
+  .card h4 {
+    font-family: 'Cinzel', serif; font-size: 0.78rem; font-weight: 700;
+    color: var(--brown-deep); letter-spacing: 0.08em; margin-bottom: 0.75rem;
+  }
+  .card p {
+    font-size: 0.83rem; color: var(--text-light); line-height: 1.7;
+  }
+
+  /* ── bullet aesthetic ── */
+  .bullet-list { list-style: none; margin: 1.25rem 0; }
+  .bullet-list li {
+    display: flex; align-items: flex-start; gap: 0.75rem;
+    padding: 0.5rem 0; border-bottom: 1px dashed rgba(184,150,46,0.2);
+    font-size: 0.9rem; color: var(--text-mid); line-height: 1.6;
+  }
+  .bullet-list li:last-child { border-bottom: none; }
+  .bullet-list li::before {
+    content: ''; width: 8px; height: 8px; border: 1.5px solid var(--gold);
+    transform: rotate(45deg); flex-shrink: 0; margin-top: 0.4rem;
+  }
+
+  /* ── accordion ── */
+  .accordion { margin: 1.5rem 0; }
+  .acc-item {
+    border: 1px solid var(--border-brown);
+    margin-bottom: 0.75rem;
+    background: linear-gradient(135deg, #fffdf9, #faf6ef);
+    overflow: hidden;
+  }
+  .acc-trigger {
+    width: 100%; text-align: left; cursor: pointer; padding: 1.1rem 1.5rem;
+    background: none; border: none;
+    display: flex; align-items: center; gap: 1rem;
+    font-family: 'Libre Baskerville', serif; font-size: 0.88rem; font-weight: 700;
+    color: var(--brown-deep);
+    border-left: 3px solid transparent;
+    transition: all var(--transition);
+  }
+  .acc-trigger:hover, .acc-trigger.active {
+    border-left-color: var(--gold); background: rgba(184,150,46,0.05);
+  }
+  .acc-trigger .acc-icon {
+    width: 28px; height: 28px; border: 1px solid var(--border-gold);
+    background: var(--bg-dark); display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; transition: transform var(--transition);
+  }
+  .acc-trigger .acc-icon i { color: var(--gold-bright); font-size: 0.6rem; }
+  .acc-trigger.active .acc-icon { transform: rotate(180deg); }
+  .acc-body {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(.4,0,.2,1), padding 0.35s;
+    padding: 0 1.5rem;
+    border-top: 1px solid transparent;
+  }
+  .acc-body.open {
+    max-height: 1000px; padding: 1.25rem 1.5rem;
+    border-top-color: var(--border-gold);
+  }
+  .acc-body-inner {
+    font-size: 0.88rem; color: var(--text-light); line-height: 1.8;
+  }
+  .acc-body-inner p { margin-bottom: 0.75rem; }
+  .acc-body-inner ul { list-style: none; }
+  .acc-body-inner ul li {
+    padding: 0.3rem 0 0.3rem 1.25rem; position: relative;
+    border-bottom: 1px dotted rgba(184,150,46,0.15);
+    font-size: 0.85rem;
+  }
+  .acc-body-inner ul li::before {
+    content: '›'; position: absolute; left: 0; color: var(--gold); font-weight: 700;
+  }
+  .acc-body-inner ul li:last-child { border-bottom: none; }
+
+  /* ── timeline ── */
+  .timeline { margin: 2.5rem 0; position: relative; }
+  .timeline::before {
+    content: ''; position: absolute; left: 24px; top: 0; bottom: 0;
+    width: 1px; background: linear-gradient(180deg, var(--gold), transparent);
+  }
+  .tl-item {
+    display: flex; gap: 1.5rem; margin-bottom: 2rem;
+    padding-left: 0.5rem;
+    opacity: 0; transform: translateX(-20px);
+    transition: opacity 0.6s, transform 0.6s;
+  }
+  .tl-item.visible { opacity: 1; transform: translateX(0); }
+  .tl-dot {
+    width: 48px; height: 48px; border: 2px solid var(--gold);
+    background: var(--bg-dark); display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; position: relative; z-index: 1;
+  }
+  .tl-dot i { color: var(--gold-bright); font-size: 0.85rem; }
+  .tl-content {
+    flex: 1; background: linear-gradient(145deg, #fffdf9, var(--cream));
+    border: 1px solid var(--border-brown);
+    border-left: 3px solid var(--gold); padding: 1.25rem 1.5rem;
+    box-shadow: 0 2px 8px var(--shadow-warm);
+  }
+  .tl-date {
+    font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.2em;
+    color: var(--gold); text-transform: uppercase; margin-bottom: 0.5rem;
+  }
+  .tl-title {
+    font-family: 'Libre Baskerville', serif; font-size: 0.95rem; font-weight: 700;
+    color: var(--brown-deep); margin-bottom: 0.5rem;
+  }
+  .tl-desc {
+    font-size: 0.85rem; color: var(--text-light); line-height: 1.7;
+  }
+
+  /* ── impact two-col ── */
+  .impact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0; }
+  .impact-box {
+    padding: 1.5rem;
+    border: 1px solid var(--border-brown);
+    position: relative;
+  }
+  .impact-box.positive {
+    background: linear-gradient(145deg, rgba(184,150,46,0.06), #fffdf9);
+    border-top: 3px solid var(--gold);
+  }
+  .impact-box.negative {
+    background: linear-gradient(145deg, rgba(44,31,20,0.05), #fffdf9);
+    border-top: 3px solid var(--brown-mid);
+  }
+  .impact-box-title {
+    font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.15em;
+    text-transform: uppercase; margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .impact-box.positive .impact-box-title { color: var(--gold); }
+  .impact-box.negative .impact-box-title { color: var(--brown-mid); }
+  .impact-box ul { list-style: none; }
+  .impact-box ul li {
+    font-size: 0.875rem; color: var(--text-mid); padding: 0.45rem 0;
+    border-bottom: 1px dashed rgba(0,0,0,0.07);
+    display: flex; gap: 0.6rem; line-height: 1.5; align-items: flex-start;
+  }
+  .impact-box ul li:last-child { border-bottom: none; }
+  .impact-box.positive ul li::before { content: '✦'; color: var(--gold); font-size: 0.6rem; margin-top: 0.2rem; flex-shrink: 0; }
+  .impact-box.negative ul li::before { content: '▪'; color: var(--brown-mid); font-size: 0.6rem; margin-top: 0.2rem; flex-shrink: 0; }
+
+  /* ── conclusion box ── */
+  .conclusion-box {
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #3d2415 100%);
+    border: 1px solid rgba(184,150,46,0.3); padding: 2.5rem;
+    position: relative; margin-top: 1.5rem;
+  }
+  .conclusion-box::before, .conclusion-box::after {
+    content: ''; position: absolute;
+    border: 1px solid rgba(184,150,46,0.15);
+  }
+  .conclusion-box::before { inset: 8px; }
+  .conclusion-box::after { inset: 14px; }
+  .conclusion-box p {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.15rem;
+    color: var(--cream); line-height: 1.9; font-style: italic;
+    position: relative; z-index: 1; text-align: center;
+  }
+
+  /* ── ornamental row sub-title ── */
+  .sub-title {
+    font-family: 'Libre Baskerville', serif; font-size: 1.05rem; font-weight: 700;
+    color: var(--brown-deep); margin: 2rem 0 1rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .sub-title i { color: var(--gold); font-size: 0.85rem; }
+  .sub-title::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(90deg, var(--border-gold), transparent);
+  }
+
+  /* ══ FOOTER ══ */
+  footer {
+    background: linear-gradient(180deg, #1a0f08 0%, #0e0806 100%);
+    border-top: 2px solid var(--gold);
+    padding: 3.5rem 3.5rem 2rem;
+    position: relative;
+  }
+  footer::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-bright), transparent);
+    top: 4px;
+  }
+
+  .footer-ornament {
+    text-align: center; font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; color: rgba(184,150,46,0.25); letter-spacing: 0.5em;
+    margin-bottom: 2.5rem;
+  }
+
+  .footer-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem;
+    margin-bottom: 2.5rem;
+  }
+  .footer-col-title {
+    font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--gold-bright);
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(184,150,46,0.2);
+  }
+  .footer-col p {
+    font-family: 'Cormorant Garamond', serif; font-size: 0.95rem;
+    color: rgba(217,196,160,0.7); line-height: 1.8;
+  }
+  .footer-col .names {
+    font-size: 1rem; color: var(--beige); font-weight: 600; margin-bottom: 0.25rem;
+  }
+  .footer-col .class-info {
+    font-size: 0.85rem; font-style: italic; color: rgba(184,150,46,0.6);
+  }
+
+  .footer-contact-item {
+    display: flex; align-items: center; gap: 0.75rem;
+    margin-bottom: 0.85rem;
+  }
+  .footer-contact-item i {
+    color: var(--gold); font-size: 0.9rem; width: 20px; text-align: center;
+  }
+  .footer-contact-item a {
+    font-family: 'Libre Baskerville', serif; font-size: 0.82rem;
+    color: rgba(217,196,160,0.8); text-decoration: none;
+    transition: color var(--transition);
+    display: flex; flex-direction: column;
+  }
+  .footer-contact-item a:hover { color: var(--gold-bright); }
+  .footer-contact-item a span { font-size: 0.72rem; color: rgba(184,150,46,0.5); }
+
+  .footer-divider {
+    border: none; border-top: 1px solid rgba(184,150,46,0.15); margin: 1.5rem 0;
+  }
+  .footer-bottom {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif; font-size: 0.85rem;
+    color: rgba(184,150,46,0.35); font-style: italic;
+  }
+
+  /* ══ RESPONSIVE ══ */
+  @media (max-width: 900px) {
+    :root { --sidebar-w: 0px; }
+    #sidebar { transform: translateX(-260px); width: 260px; }
+    #sidebar.open { transform: translateX(0); --sidebar-w: 260px; }
+    #main { margin-left: 0; }
+    .hamburger { display: flex; }
+    .navbar-links { display: none; }
+    .navbar-ornament { display: none; }
+    .content-wrapper { padding: 0 1.5rem; }
+    #hero { padding: 4rem 1.5rem 2.5rem; }
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    footer { padding: 2.5rem 1.5rem 1.5rem; }
+    .impact-grid { grid-template-columns: 1fr; }
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .hero-meta { gap: 1.5rem; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .stats-row { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<nav id="navbar">
+  <div class="navbar-brand">
+    <i class="fas fa-landmark" style="color:var(--gold);margin-right:.5rem;"></i>
+    Sejarah Indonesia
+    <span>Arsip Digital — Era Reformasi</span>
+  </div>
+  <ul class="navbar-links">
+    <li><a href="#beranda">Beranda</a></li>
+    <li><a href="#latar-belakang">Latar Belakang</a></li>
+    <li><a href="#upaya-pemulihan">Upaya Pemulihan</a></li>
+    <li><a href="#dampak">Dampak</a></li>
+    <li><a href="#kesimpulan">Kesimpulan</a></li>
+  </ul>
+  <div class="navbar-ornament">⁕ ⁑ ⁕</div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- mobile menu -->
+<ul class="mobile-menu" id="mobileMenu">
+  <li><a href="#beranda" class="mobile-link">Beranda</a></li>
+  <li><a href="#latar-belakang" class="mobile-link">Latar Belakang</a></li>
+  <li><a href="#upaya-pemulihan" class="mobile-link">Upaya Pemulihan</a></li>
+  <li><a href="#dampak" class="mobile-link">Dampak</a></li>
+  <li><a href="#kesimpulan" class="mobile-link">Kesimpulan</a></li>
+</ul>
+
+<!-- ══ LAYOUT ══ -->
+<div class="layout">
+
+  <!-- ══ SIDEBAR ══ -->
+  <aside id="sidebar">
+    <div class="sidebar-header">
+      <p>Navigasi Arsip</p>
+      <h3>Pemulihan Krisis Moneter Era Reformasi</h3>
+    </div>
+    <nav class="sidebar-nav">
+      <ul>
+        <li><a href="#beranda" data-section="beranda">
+          <i class="fas fa-home"></i> Beranda
+        </a></li>
+        <li><a href="#latar-belakang" data-section="latar-belakang">
+          <i class="fas fa-scroll"></i> Latar Belakang Krisis
+        </a></li>
+        <li><a href="#pembentukan" data-section="pembentukan">
+          <i class="fas fa-university"></i> Pemerintahan Reformasi
+        </a></li>
+        <li><a href="#imf" data-section="imf">
+          <i class="fas fa-handshake"></i> Kerja Sama IMF
+        </a></li>
+        <li><a href="#perbankan" data-section="perbankan">
+          <i class="fas fa-landmark"></i> Restrukturisasi Perbankan
+        </a></li>
+        <li><a href="#stabilitas" data-section="stabilitas">
+          <i class="fas fa-chart-line"></i> Stabilitas Rupiah
+        </a></li>
+        <li><a href="#reformasi" data-section="reformasi">
+          <i class="fas fa-balance-scale"></i> Reformasi Politik & Ekonomi
+        </a></li>
+        <li><a href="#sosial" data-section="sosial">
+          <i class="fas fa-users"></i> Pemulihan Sosial
+        </a></li>
+        <li><a href="#dampak" data-section="dampak">
+          <i class="fas fa-layer-group"></i> Dampak Pemulihan
+        </a></li>
+        <li><a href="#kesimpulan" data-section="kesimpulan">
+          <i class="fas fa-feather-alt"></i> Kesimpulan
+        </a></li>
+      </ul>
+    </nav>
+    <div class="sidebar-footer-note">✦ Dokumentasi Sejarah ✦</div>
+  </aside>
+
+  <!-- ══ MAIN ══ -->
+  <main id="main">
+
+    <!-- ══ HERO ══ -->
+    <section id="beranda" style="opacity:1;transform:none;padding:0;border:none;">
+      <div id="hero">
+        <div class="hero-ornament-top">⸻ ⋆ ⸻</div>
+        <div class="hero-eyebrow">
+          <span>Sejarah Indonesia Modern</span>
+        </div>
+        <h1 class="hero-title">
+          Pemulihan Krisis Moneter
+          <span>pada Masa Reformasi</span>
+        </h1>
+        <p class="hero-subtitle">Setelah Runtuhnya Orde Baru — 1997 hingga Awal 2000-an</p>
+        <div class="hero-divider">
+          <div class="hero-divider-line"></div>
+          <i class="fas fa-coins hero-divider-icon"></i>
+          <div class="hero-divider-line"></div>
+        </div>
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <span class="label">Periode</span>
+            <span class="value">1997 — 2001</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="label">Mata Pelajaran</span>
+            <span class="value">Sejarah Indonesia</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="label">Kelas</span>
+            <span class="value">XI SIJA 1</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="label">Kelompok</span>
+            <span class="value">Kelompok 6</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="content-wrapper">
+
+      <!-- ══ LATAR BELAKANG ══ -->
+      <section id="latar-belakang">
+        <div class="section-label"><i class="fas fa-scroll"></i> Bagian I</div>
+        <h2 class="section-title">Latar Belakang Krisis Moneter 1997–1998</h2>
+
+        <div class="prose">
+          <p>Krisis moneter di Indonesia bermula pada tahun 1997 ketika nilai tukar rupiah melemah drastis terhadap dolar Amerika Serikat. Krisis ini awalnya terjadi di beberapa negara Asia dan kemudian menyebar ke Indonesia. Kondisi ekonomi Indonesia saat itu sangat bergantung pada utang luar negeri dan banyak perusahaan tidak mampu membayar pinjaman mereka ketika nilai rupiah jatuh.</p>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat-card">
+            <span class="stat-num">1997</span>
+            <span class="stat-label">Tahun Awal Krisis Moneter Asia</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">Rp 2.909</span>
+            <span class="stat-label">Kurs Rupiah Sebelum Krisis (per USD)</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">16.000+</span>
+            <span class="stat-label">Kurs Rupiah di Puncak Krisis 1998</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">21 Mei</span>
+            <span class="stat-label">1998 — Soeharto Mengundurkan Diri</span>
+          </div>
+        </div>
+
+        <div class="quote-block">
+          <p>Situasi ini memicu demonstrasi besar-besaran yang akhirnya menyebabkan Presiden Soeharto mengundurkan diri pada 21 Mei 1998 — menandai berakhirnya masa Orde Baru dan dimulainya era Reformasi.</p>
+        </div>
+
+        <div class="sub-title"><i class="fas fa-exclamation-circle"></i> Akibat Krisis</div>
+        <ul class="bullet-list">
+          <li>Banyak bank mengalami kebangkrutan akibat kredit macet yang melonjak tajam</li>
+          <li>Harga kebutuhan pokok meningkat drastis dan sulit dijangkau masyarakat</li>
+          <li>Pengangguran dan kemiskinan bertambah secara signifikan di seluruh Indonesia</li>
+          <li>Kepercayaan masyarakat dan investor terhadap pemerintah menurun drastis</li>
+        </ul>
+
+        <div class="divider-vintage">— ✦ —</div>
+
+        <!-- Timeline -->
+        <div class="sub-title"><i class="fas fa-clock"></i> Kronologi Singkat</div>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot"><i class="fas fa-globe-asia"></i></div>
+            <div class="tl-content">
+              <div class="tl-date">Juli 1997</div>
+              <div class="tl-title">Krisis Mulai di Asia</div>
+              <div class="tl-desc">Krisis moneter dimulai di Thailand kemudian menjalar ke seluruh Asia Tenggara termasuk Indonesia.</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"><i class="fas fa-arrow-down"></i></div>
+            <div class="tl-content">
+              <div class="tl-date">Agustus 1997</div>
+              <div class="tl-title">Rupiah Mulai Melemah</div>
+              <div class="tl-desc">Nilai tukar rupiah terhadap dolar AS mulai melemah secara signifikan, menekan perekonomian nasional.</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"><i class="fas fa-people-arrows"></i></div>
+            <div class="tl-content">
+              <div class="tl-date">Mei 1998</div>
+              <div class="tl-title">Demonstrasi Besar-Besaran</div>
+              <div class="tl-desc">Rakyat Indonesia turun ke jalan menuntut reformasi dan pengunduran diri Presiden Soeharto.</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"><i class="fas fa-star"></i></div>
+            <div class="tl-content">
+              <div class="tl-date">21 Mei 1998</div>
+              <div class="tl-title">Orde Baru Berakhir</div>
+              <div class="tl-desc">Soeharto resmi mengundurkan diri. B. J. Habibie dilantik sebagai Presiden RI, menandai awal era Reformasi.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══ UPAYA PEMULIHAN ══ -->
+      <section id="upaya-pemulihan">
+        <div class="section-label"><i class="fas fa-tools"></i> Bagian II</div>
+        <h2 class="section-title">Upaya Pemulihan Krisis Moneter pada Masa Reformasi</h2>
+
+        <!-- 1. Pembentukan Pemerintahan -->
+        <div id="pembentukan">
+          <div class="sub-title"><i class="fas fa-university"></i> 1. Pembentukan Pemerintahan Reformasi (1998-1999)</div>
+          <div class="prose">
+            <strong>Kepemimpinan:</strong> B.J. Habibie</li>
+            <p>Setelah pengunduran diri Soeharto, jabatan presiden digantikan oleh B. J. Habibie. Pemerintah Reformasi mulai melakukan berbagai perubahan untuk memulihkan kondisi ekonomi dan politik Indonesia.</p>
+          </div>
+
+          <div class="cards-grid">
+            <div class="card">
+              <div class="card-icon"><i class="fas fa-chart-bar"></i></div>
+              <h4>Stabilisasi Ekonomi</h4>
+              <p>Menstabilkan ekonomi nasional yang terpuruk akibat krisis berkepanjangan.</p>
+            </div>
+            <div class="card">
+              <div class="card-icon"><i class="fas fa-handshake"></i></div>
+              <h4>Kepercayaan Publik</h4>
+              <p>Mengembalikan kepercayaan masyarakat dan investor asing kepada Indonesia.</p>
+            </div>
+            <div class="card">
+              <div class="card-icon"><i class="fas fa-landmark"></i></div>
+              <h4>Reformasi Perbankan</h4>
+              <p>Memperbaiki sistem perbankan dan tata kelola pemerintahan yang transparan.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="divider-vintage">⁕ ⁑ ⁕</div>
+
+        <!-- 2. IMF Accordion -->
+        <div id="imf">
+          <div class="sub-title"><i class="fas fa-handshake"></i> 2. Kerja Sama dengan IMF (1997-2003)</div>
+          <div class="prose">
+            <strong>Kepemimpinan:</strong>
+              <li>Soeharto</li>
+              <li>B.J. Habibie</li>
+              <li>Abdurrahman Wahid</li>
+              <li>Megawati Soekarnoputri</li>
+            <p>Pemerintah Indonesia bekerja sama dengan International Monetary Fund (IMF) untuk mendapatkan bantuan dana dan solusi ekonomi yang bertujuan menstabilkan nilai rupiah dan memperbaiki kondisi ekonomi Indonesia.</p>
+          </div>
+
+          <div class="accordion">
+            <div class="acc-item">
+              <button class="acc-trigger">
+                <div class="acc-icon"><i class="fas fa-chevron-down"></i></div>
+                Program Penyehatan Sektor Perbankan
+              </button>
+              <div class="acc-body">
+                <div class="acc-body-inner">
+                  <p>IMF mensyaratkan pemerintah Indonesia untuk menyehatkan sektor perbankan yang porak-poranda akibat kredit macet.</p>
+                  <ul>
+                    <li>Penutupan bank-bank bermasalah yang tidak dapat diselamatkan</li>
+                    <li>Rekapitalisasi bank dengan injeksi modal negara</li>
+                    <li>Penerapan standar kehati-hatian perbankan internasional</li>
+                    <li>Transparansi laporan keuangan perbankan</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="acc-item">
+              <button class="acc-trigger">
+                <div class="acc-icon"><i class="fas fa-chevron-down"></i></div>
+                Pengurangan Subsidi Tertentu
+              </button>
+              <div class="acc-body">
+                <div class="acc-body-inner">
+                  <p>Sebagai bagian dari program IMF, pemerintah diminta mengurangi subsidi tertentu guna menyehatkan anggaran negara.</p>
+                  <ul>
+                    <li>Pengurangan subsidi BBM secara bertahap</li>
+                    <li>Rasionalisasi subsidi pangan</li>
+                    <li>Penyesuaian harga barang bersubsidi sesuai mekanisme pasar</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="acc-item">
+              <button class="acc-trigger">
+                <div class="acc-icon"><i class="fas fa-chevron-down"></i></div>
+                Pengawasan Anggaran Negara
+              </button>
+              <div class="acc-body">
+                <div class="acc-body-inner">
+                  <p>IMF mengawasi ketat penggunaan anggaran negara untuk memastikan disiplin fiskal dan transparansi pengelolaan keuangan negara.</p>
+                  <ul>
+                    <li>Audit independen terhadap anggaran pemerintah</li>
+                    <li>Pembatasan defisit anggaran</li>
+                    <li>Pelaporan keuangan negara yang lebih transparan</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="acc-item">
+              <button class="acc-trigger">
+                <div class="acc-icon"><i class="fas fa-chevron-down"></i></div>
+                Reformasi Ekonomi dan Transparansi Pemerintahan
+              </button>
+              <div class="acc-body">
+                <div class="acc-body-inner">
+                  <p>Program IMF juga mencakup reformasi struktural ekonomi dan peningkatan transparansi pemerintahan Indonesia.</p>
+                  <ul>
+                    <li>Liberalisasi perdagangan dan investasi</li>
+                    <li>Pemberantasan praktik monopoli dan oligopoli</li>
+                    <li>Penguatan lembaga hukum dan pengadilan</li>
+                    <li>Transparansi proses pengadaan pemerintah</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="divider-vintage">— ✦ —</div>
+
+        <!-- 3. Restrukturisasi Perbankan -->
+        <div id="perbankan">
+          <div class="sub-title"><i class="fas fa-landmark"></i> 3. Restrukturisasi Perbankan (1998-2004)</div>
+          <strong>Kepemimpinan:</strong>
+          <li>B.J. Habibie</li>
+          <li>Abdurrahman Wahid</li>
+          <li>Megawati Soekarnoputri</li>
+          <div class="prose">
+            <p>Banyak bank mengalami kerugian besar akibat krisis. Pemerintah kemudian melakukan berbagai langkah penyelamatan sistem keuangan nasional.</p>
+          </div>
+
+          <div class="infobox">
+            <div class="infobox-title"><i class="fas fa-building"></i> Badan Penyehatan Perbankan Nasional (BPPN)</div>
+            <ul>
+              <li>Lembaga khusus yang dibentuk untuk menangani utang-utang bank bermasalah</li>
+              <li>Melakukan pengelolaan aset-aset bank yang bermasalah</li>
+              <li>Menjamin simpanan masyarakat di bank-bank yang dilikuidasi</li>
+              <li>Memfasilitasi restrukturisasi utang korporasi besar</li>
+            </ul>
+          </div>
+
+          <div class="accordion">
+            <div class="acc-item">
+              <button class="acc-trigger">
+                <div class="acc-icon"><i class="fas fa-chevron-down"></i></div>
+                Penutupan Bank Bermasalah
+              </button>
+              <div class="acc-body">
+                <div class="acc-body-inner">
+                  <p>Pemerintah menutup sejumlah bank yang tidak dapat diselamatkan untuk mencegah kerugian lebih lanjut terhadap sistem keuangan.</p>
+                  <ul>
+                    <li>16 bank dilikuidasi pada November 1997</li>
+                    <li>Bank-bank swasta bermasalah diambil alih pemerintah</li>
+                    <li>Nasabah mendapat jaminan simpanan dari pemerintah</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="acc-item">
+              <button class="acc-trigger">
+                <div class="acc-icon"><i class="fas fa-chevron-down"></i></div>
+                Penggabungan dan Rekapitalisasi Bank
+              </button>
+              <div class="acc-body">
+                <div class="acc-body-inner">
+                  <p>Bank-bank yang masih bisa diselamatkan digabungkan atau direkap untuk memperkuat struktur modal dan meningkatkan efisiensi.</p>
+                  <ul>
+                    <li>Merger bank-bank BUMN menjadi Bank Mandiri</li>
+                    <li>Program rekapitalisasi dengan obligasi pemerintah</li>
+                    <li>Penguatan manajemen bank melalui direksi baru yang profesional</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="divider-vintage">⁕ ⁑ ⁕</div>
+
+        <!-- 4. Stabilitas Rupiah -->
+        <div id="stabilitas">
+          <div class="sub-title"><i class="fas fa-chart-line"></i> 4. Stabilitas Nilai Rupiah (1998-2004)</div>
+          <div class="infobox" style="margin-bottom: 1.5rem;">
+            <div class="infobox-title"><i class="fas fa-crown"></i> Kepemimpinan</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:0.82rem; font-style:italic; color:rgba(217,196,160,0.65); border-bottom:1px solid rgba(184,150,46,0.2); padding-bottom:0.6rem; margin-bottom:0.75rem;">
+             Periode Stabilitas Rupiah: <span style="color:var(--gold-muted); font-style:normal; font-weight:600;">1998 — 2004</span>
+            </div>
+            <ul style="list-style:none; padding:0; margin:0;">
+              <li style="display:flex; align-items:center; gap:0.85rem; padding:0.55rem 0; border-bottom:1px solid rgba(184,150,46,0.1);">
+                <span style="font-family:'Cinzel',serif; font-size:0.58rem; color:rgba(184,150,46,0.45); width:1.6rem; text-align:right; flex-shrink:0;">01</span>
+                <span style="width:6px; height:6px; background:var(--gold); transform:rotate(45deg); display:inline-block; flex-shrink:0;"></span>
+                <span style="flex:1;">
+                  <span style="font-family:'Cormorant Garamond',serif; font-size:1rem; font-weight:600; color:var(--cream); display:block; line-height:1.2;">B.J. Habibie</span>
+                  <span style="font-family:'Libre Baskerville',serif; font-size:0.62rem; font-style:italic; color:rgba(184,150,46,0.55);">1998–1999</span>
+                </span>
+              </li>
+              <li style="display:flex; align-items:center; gap:0.85rem; padding:0.55rem 0; border-bottom:1px solid rgba(184,150,46,0.1);">
+                <span style="font-family:'Cinzel',serif; font-size:0.58rem; color:rgba(184,150,46,0.45); width:1.6rem; text-align:right; flex-shrink:0;">02</span>
+                <span style="width:6px; height:6px; background:var(--gold); transform:rotate(45deg); display:inline-block; flex-shrink:0;"></span>
+                <span style="flex:1;">
+                  <span style="font-family:'Cormorant Garamond',serif; font-size:1rem; font-weight:600; color:var(--cream); display:block; line-height:1.2;">Abdurrahman Wahid</span>
+                  <span style="font-family:'Libre Baskerville',serif; font-size:0.62rem; font-style:italic; color:rgba(184,150,46,0.55);">1999–2001</span>
+                </span>
+              </li>
+    <li style="display:flex; align-items:center; gap:0.85rem; padding:0.55rem 0; border-bottom:1px solid rgba(184,150,46,0.1);">
+      <span style="font-family:'Cinzel',serif; font-size:0.58rem; color:rgba(184,150,46,0.45); width:1.6rem; text-align:right; flex-shrink:0;">03</span>
+      <span style="width:6px; height:6px; background:var(--gold); transform:rotate(45deg); display:inline-block; flex-shrink:0;"></span>
+      <span style="flex:1;">
+        <span style="font-family:'Cormorant Garamond',serif; font-size:1rem; font-weight:600; color:var(--cream); display:block; line-height:1.2;">Megawati Soekarnoputri</span>
+        <span style="font-family:'Libre Baskerville',serif; font-size:0.62rem; font-style:italic; color:rgba(184,150,46,0.55);">2001–2004</span>
+      </span>
+    </li>
+  </ul>
+</div>
+<p>
+    Pemerintah dan Bank Indonesia melakukan berbagai langkah untuk menjaga kestabilan nilai tukar rupiah. Perlahan-lahan nilai rupiah mulai membaik dibandingkan masa puncak krisis tahun 1998.
+<li>Mengatur suku bunga secara hati-hati untuk menyeimbangkan stabilitas dan pertumbuhan</li>
+<li>Mengendalikan inflasi melalui kebijakan moneter yang ketat</li>
+<li>Menjaga dan membangun kembali cadangan devisa negara</li>
+<li>Koordinasi kebijakan antara Bank Indonesia dan Kementerian Keuangan</li>
+</p>
+        <div class="divider-vintage">— ✦ —</div>
+
+        <!-- 5. Reformasi Politik & Ekonomi -->
+        <div id="reformasi">
+          <div class="sub-title"><i class="fas fa-balance-scale"></i> 5. Reformasi Politik dan Ekonomi (1998-2004)</div>
+          <li>B. J. Habibie</li>
+          <li>Abdurrahman Wahid</li>
+          <li>Megawati Soekarnoputri</li>
+          <div class="prose">
+            <p>Era Reformasi tidak hanya memperbaiki ekonomi, tetapi juga sistem politik Indonesia secara fundamental. Berbagai perubahan penting dilakukan untuk menciptakan pemerintahan yang lebih bersih dan transparan.</p>
+          </div>
+          <div class="accordion">
+            <div class="acc-item">
+              <button class="acc-trigger">
+                <div class="acc-icon"><i class="fas fa-chevron-down"></i></div>
+                Kebebasan Pers dan Demokrasi
+              </button>
+              <div class="acc-body">
+                <div class="acc-body-inner">
+                  <p>Salah satu pencapaian terbesar Reformasi adalah terbukanya kebebasan pers dan berkembangnya demokrasi yang lebih substansial.</p>
+                  <ul>
+                    <li>Pencabutan regulasi yang membatasi kebebasan pers</li>
+                    <li>Munculnya ratusan media cetak dan elektronik baru</li>
+                    <li>Pemilu 1999 yang lebih demokratis dan multipartai</li>
+                    <li>Pemilihan presiden secara langsung mulai 2004</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="acc-item">
+              <button class="acc-trigger">
+                <div class="acc-icon"><i class="fas fa-chevron-down"></i></div>
+                Pemberantasan KKN (Korupsi, Kolusi, Nepotisme)
+              </button>
+              <div class="acc-body">
+                <div class="acc-body-inner">
+                  <p>Agenda pemberantasan KKN menjadi salah satu tuntutan utama Reformasi yang kemudian ditindaklanjuti dengan pembentukan berbagai lembaga baru.</p>
+                  <ul>
+                    <li>Pembentukan KPK (Komisi Pemberantasan Korupsi)</li>
+                    <li>Penguatan lembaga peradilan yang independen</li>
+                    <li>Penerapan prinsip good governance di pemerintahan</li>
+                    <li>Audit terhadap kekayaan pejabat negara</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="acc-item">
+              <button class="acc-trigger">
+                <div class="acc-icon"><i class="fas fa-chevron-down"></i></div>
+                Otonomi Daerah
+              </button>
+              <div class="acc-body">
+                <div class="acc-body-inner">
+                  <p>Desentralisasi kewenangan dari pemerintah pusat ke daerah menjadi salah satu reformasi struktural terpenting dalam sejarah Indonesia.</p>
+                  <ul>
+                    <li>UU No. 22 Tahun 1999 tentang Pemerintahan Daerah</li>
+                    <li>Pengalihan kewenangan pengelolaan sumber daya ke daerah</li>
+                    <li>Pemilihan kepala daerah secara langsung</li>
+                    <li>Desentralisasi fiskal melalui dana perimbangan</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="divider-vintage">⁕ ⁑ ⁕</div>
+
+        <!-- 6. Pemulihan Sosial -->
+        <div id="sosial">
+          <div class="sub-title"><i class="fas fa-users"></i> 6. Pemulihan Kondisi Sosial Masyarakat (1998-2004)</div>
+          <li>B.J. Habibie</li>
+          <li>Abdurrahman Wahid</li>
+          <li>Megawati Soekarnoputri</li>
+          <div class="prose">
+            <p>Pemerintah juga menjalankan berbagai program untuk membantu masyarakat yang terdampak krisis, dengan tujuan mengurangi angka kemiskinan dan pengangguran.</p>
+          </div>
+
+          <div class="accordion">
+            <div class="acc-item">
+              <button class="acc-trigger">
+                <div class="acc-icon"><i class="fas fa-chevron-down"></i></div>
+                Bantuan Kebutuhan Pokok
+              </button>
+              <div class="acc-body">
+                <div class="acc-body-inner">
+                  <p>Pemerintah menyalurkan bantuan langsung kebutuhan pokok kepada masyarakat yang paling terdampak krisis ekonomi.</p>
+                  <ul>
+                    <li>Program Operasi Pasar Khusus (OPK) beras bagi keluarga miskin</li>
+                    <li>Stabilisasi harga bahan pokok di pasar</li>
+                    <li>Distribusi sembako ke daerah-daerah terpencil</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="acc-item">
+              <button class="acc-trigger">
+                <div class="acc-icon"><i class="fas fa-chevron-down"></i></div>
+                Program Padat Karya & Lapangan Kerja
+              </button>
+              <div class="acc-body">
+                <div class="acc-body-inner">
+                  <p>Program padat karya digulirkan untuk menyerap tenaga kerja yang kehilangan pekerjaan akibat krisis dan kebangkrutan perusahaan.</p>
+                  <ul>
+                    <li>Program padat karya infrastruktur di desa dan kota</li>
+                    <li>Pembukaan lapangan kerja baru di sektor formal</li>
+                    <li>Pelatihan keterampilan untuk para pengangguran</li>
+                    <li>Dukungan usaha mikro dan kecil menengah (UMKM)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="acc-item">
+              <button class="acc-trigger">
+                <div class="acc-icon"><i class="fas fa-chevron-down"></i></div>
+                Bantuan Pendidikan dan Kesehatan
+              </button>
+              <div class="acc-body">
+                <div class="acc-body-inner">
+                  <p>Pemerintah memberikan bantuan di bidang pendidikan dan kesehatan agar generasi muda tidak menjadi korban jangka panjang dari krisis ekonomi.</p>
+                  <ul>
+                    <li>Beasiswa dan bantuan biaya pendidikan bagi siswa kurang mampu</li>
+                    <li>Program Jaring Pengaman Sosial bidang kesehatan</li>
+                    <li>Kartu Sehat untuk akses layanan kesehatan gratis</li>
+                    <li>Pembangunan Puskesmas di daerah tertinggal</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══ DAMPAK ══ -->
+      <section id="dampak">
+        <div class="section-label"><i class="fas fa-layer-group"></i> Bagian III</div>
+        <h2 class="section-title">Dampak Pemulihan Krisis Moneter</h2>
+
+        <div class="prose">
+          <p>Setelah serangkaian upaya pemulihan yang panjang dan berliku, proses keluar dari krisis moneter membawa berbagai dampak bagi Indonesia, baik yang bersifat positif maupun negatif.</p>
+        </div>
+
+        <div class="accordion" style="margin-bottom:2rem;">
+          <div class="acc-item">
+            <button class="acc-trigger">
+              <div class="acc-icon"><i class="fas fa-chevron-down"></i></div>
+              Dampak Positif Pemulihan Krisis
+            </button>
+            <div class="acc-body">
+              <div class="acc-body-inner">
+                <ul>
+                  <li>Kondisi ekonomi mulai stabil dan bertumbuh kembali</li>
+                  <li>Nilai rupiah membaik dan lebih stabil terhadap dolar</li>
+                  <li>Sistem perbankan nasional menjadi lebih kuat dan sehat</li>
+                  <li>Demokrasi berkembang lebih terbuka dan partisipatif</li>
+                  <li>Investor asing mulai kembali percaya kepada Indonesia</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="acc-item">
+            <button class="acc-trigger">
+              <div class="acc-icon"><i class="fas fa-chevron-down"></i></div>
+              Dampak Negatif dan Tantangan
+            </button>
+            <div class="acc-body">
+              <div class="acc-body-inner">
+                <ul>
+                  <li>Banyak perusahaan bangkrut dan tidak dapat diselamatkan</li>
+                  <li>Pengangguran meningkat tajam pada awal era Reformasi</li>
+                  <li>Utang negara bertambah akibat bantuan luar negeri dan obligasi rekapitalisasi</li>
+                  <li>Proses pemulihan membutuhkan waktu yang cukup lama</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="impact-grid">
+          <div class="impact-box positive">
+            <div class="impact-box-title"><i class="fas fa-arrow-up"></i> Dampak Positif</div>
+            <ul>
+              <li>Kondisi ekonomi mulai stabil</li>
+              <li>Nilai rupiah membaik</li>
+              <li>Sistem perbankan lebih kuat</li>
+              <li>Demokrasi berkembang lebih terbuka</li>
+              <li>Investor asing kembali percaya</li>
+            </ul>
+          </div>
+          <div class="impact-box negative">
+            <div class="impact-box-title"><i class="fas fa-arrow-down"></i> Dampak Negatif</div>
+            <ul>
+              <li>Banyak perusahaan bangkrut</li>
+              <li>Pengangguran meningkat</li>
+              <li>Utang negara bertambah</li>
+              <li>Pemulihan memerlukan waktu panjang</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══ KESIMPULAN ══ -->
+      <section id="kesimpulan">
+        <div class="section-label"><i class="fas fa-feather-alt"></i> Penutup</div>
+        <h2 class="section-title">Kesimpulan</h2>
+
+        <div class="prose">
+          <p>Krisis moneter 1997–1998 menjadi salah satu peristiwa paling berat dalam sejarah Indonesia. Runtuhnya pemerintahan Orde Baru membawa Indonesia memasuki era Reformasi yang penuh perubahan.</p>
+        </div>
+
+        <div class="conclusion-box">
+          <p>Pemerintah Reformasi melakukan berbagai upaya seperti bekerja sama dengan IMF, memperbaiki sektor perbankan, menjaga stabilitas rupiah, dan melakukan reformasi politik serta ekonomi. Meskipun pemulihan membutuhkan waktu panjang dan menghadapi banyak tantangan, langkah-langkah tersebut berhasil membantu Indonesia keluar dari krisis dan membangun sistem ekonomi serta pemerintahan yang lebih baik dibanding sebelumnya.</p>
+        </div>
+
+        <div class="divider-vintage">⸻ ✦ Finish ✦ ⸻</div>
+      </section>
+
+    </div><!-- /content-wrapper -->
+
+    <!-- ══ FOOTER ══ -->
+    <footer>
+      <div class="footer-ornament">⁕ ⁑ ⁕ ⁑ ⁕</div>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-col-title"><i class="fas fa-users" style="margin-right:.4rem;"></i>Tim Penyusun</div>
+          <p class="names">Radella Alicia Rianto</p>
+          <p class="names">Zahratussita Isyqimaulida Nureza</p>
+          <p class="class-info" style="margin-top:.75rem;">Kelompok 6 &mdash; XI SIJA 1</p>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title"><i class="fas fa-book-open" style="margin-right:.4rem;"></i>Tentang Karya Ini</div>
+          <p>Dokumentasi sejarah tentang Pemulihan Krisis Moneter pada Masa Reformasi setelah Runtuhnya Orde Baru 1998 — disusun sebagai tugas akademik mata pelajaran Sejarah Indonesia.</p>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title"><i class="fab fa-instagram" style="margin-right:.4rem;"></i>Contact Us</div>
+          <div class="footer-contact-item">
+            <i class="fab fa-instagram"></i>
+            <a href="https://www.instagram.com/radellicious?igsh=MWtkZXp1cjU4YTR2" target="_blank" rel="noopener noreferrer">
+              @radellicious
+              <span>Radella Alicia Rianto</span>
+            </a>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fab fa-instagram"></i>
+            <a href="https://www.instagram.com/zaa.raa2?igsh=MTV0NjRjamdlb3lqeg==" target="_blank" rel="noopener noreferrer">
+              @zaa.raa2
+              <span>Zahratussita Isyqimaulida Nureza</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <hr class="footer-divider">
+      <div class="footer-bottom">
+        &copy; 2025 Kelompok 6 · XI SIJA 1 &mdash; Karya Akademik Sejarah Indonesia
+        &nbsp;·&nbsp; Disusun dengan ♡ dan dedikasi
+      </div>
+    </footer>
+
+  </main>
+</div><!-- /layout -->
+
+<script>
+  // ── Hamburger ──
+  const ham = document.getElementById('hamburger');
+  const mMenu = document.getElementById('mobileMenu');
+  ham.addEventListener('click', () => {
+    ham.classList.toggle('active');
+    mMenu.classList.toggle('open');
+  });
+  document.querySelectorAll('.mobile-link').forEach(l => {
+    l.addEventListener('click', () => {
+      ham.classList.remove('active');
+      mMenu.classList.remove('open');
+    });
+  });
+
+  // ── Sidebar toggle (mobile overlay) ──
+  const sidebar = document.getElementById('sidebar');
+
+  // ── Accordion ──
+  document.querySelectorAll('.acc-trigger').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const body = btn.nextElementSibling;
+      const isOpen = body.classList.contains('open');
+      // close siblings in same accordion group
+      const parent = btn.closest('.accordion');
+      if (parent) {
+        parent.querySelectorAll('.acc-body').forEach(b => b.classList.remove('open'));
+        parent.querySelectorAll('.acc-trigger').forEach(b => b.classList.remove('active'));
+      }
+      if (!isOpen) {
+        body.classList.add('open');
+        btn.classList.add('active');
+      }
+    });
+  });
+
+  // ── Scroll animations ──
+  const animateOnScroll = (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  };
+  const sectionObs = new IntersectionObserver(animateOnScroll, { threshold: 0.08 });
+  document.querySelectorAll('section:not(#beranda)').forEach(s => sectionObs.observe(s));
+
+  const tlObs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 150);
+        tlObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.tl-item').forEach(t => tlObs.observe(t));
+
+  // ── Active sidebar nav ──
+  const sections = document.querySelectorAll('section[id], div[id]');
+  const sideLinks = document.querySelectorAll('.sidebar-nav a[data-section]');
+
+  const activeObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        sideLinks.forEach(l => {
+          l.classList.toggle('active', l.dataset.section === id);
+        });
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+
+  document.querySelectorAll('section[id], div[id]').forEach(s => activeObs.observe(s));
+
+  // ── Navbar links active ──
+  const navLinks = document.querySelectorAll('.navbar-links a');
+  document.querySelectorAll('section[id]').forEach(s => {
+    new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(l => {
+            l.style.color = l.getAttribute('href') === '#' + s.id ? 'var(--gold-bright)' : '';
+          });
+        }
+      });
+    }, { rootMargin: '-40% 0px -50% 0px' }).observe(s);
+  });
+</script>
+</body>
+</html>
